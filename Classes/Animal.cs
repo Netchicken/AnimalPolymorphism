@@ -3,6 +3,8 @@
     internal class Animal
     {
         // Constructor
+        // pass in the species in the instantiation var myDog = new Dog("Fido");
+
         public Animal(string species)
         {
             Species = species;
@@ -14,7 +16,7 @@
         // MakeSound method
         public virtual string MakeSound()
         {
-            return "Grrrrrrr";
+            return "weird animal noise";
         }
     }
 }

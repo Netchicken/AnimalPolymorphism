@@ -25,20 +25,20 @@ namespace AnimalPolymorphism.Pages
             animal.MakeSound();
         }
 
-        private void createAnimal(object sender, EventArgs e)
+        private void createAnimal()
         {
             var myAnimal = new Animal("Regular animal");
             ShowAnimalInfo(myAnimal);
         }
 
-        private void createDog(object sender, EventArgs e)
+        private void createDog()
         {
             var myDog = new Dog("Fido");
             ViewData["message"] = ($"The dog's name is {myDog.Name}.");
             ShowAnimalInfo(myDog);
         }
 
-        private void createCat(object sender, EventArgs e)
+        private void createCat()
         {
             var myCat = new Cat("Kitty");
             ViewData["message"] = ($"The cat's name is {myCat.Name}.");
