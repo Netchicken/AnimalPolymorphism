@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using Polymorphism;
 
@@ -6,18 +7,16 @@ namespace AnimalPolymorphism.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
+        [BindProperty]
+        public Dog myDog { get; set; } = new Dog("Fido");
+        public Cat myCat { get; set; } = new Cat("Kat");
+        public Animal myAnimal { get; set; } = new Animal();
 
         public void OnGet()
         {
-
+            ViewData["message"] = "Species: = " + myCat.Species + ".   Sound: = " + myCat.MakeSound();
+            ViewData["newmessage"] = "Victims from the " + myCat.Species + " are " + myCat.Victims;
         }
-
 
         private void ShowAnimalInfo(Animal animal)
         {
@@ -25,11 +24,11 @@ namespace AnimalPolymorphism.Pages
             animal.MakeSound();
         }
 
-        private void createAnimal()
-        {
-            var myAnimal = new Animal("Regular animal");
-            ShowAnimalInfo(myAnimal);
-        }
+        //private void createAnimal()
+        //{
+        //    var myAnimal = new Animal("Regular animal");
+        //    ShowAnimalInfo(myAnimal);
+        //}
 
         private void createDog()
         {
@@ -44,8 +43,5 @@ namespace AnimalPolymorphism.Pages
             ViewData["message"] = ($"The cat's name is {myCat.Name}.");
             ShowAnimalInfo(myCat);
         }
-
-
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Polymorphism
 {
-    internal class Dog : Animal
+    public class Dog : Animal
     {
         // Constructor
         public Dog(string name) : base("Dog")
@@ -12,7 +12,6 @@
         public string Name { get; set; }
 
         // MakeSound method
-
         public override string MakeSound()
         {
             return "Woof! Woof!";
